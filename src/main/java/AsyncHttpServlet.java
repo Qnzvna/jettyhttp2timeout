@@ -16,6 +16,7 @@ public class AsyncHttpServlet extends HttpServlet
     protected void doGet(final HttpServletRequest request, final HttpServletResponse response)
     {
         final AsyncContext context = request.startAsync();
+        context.setTimeout(0);
         executorService.submit(() -> {
             try {
                 System.out.println("Starting processing.");
